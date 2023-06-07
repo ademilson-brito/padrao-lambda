@@ -8,10 +8,17 @@ exports.handler = async (event) => {
     var alerta;
     
     if (recebido.senha == 1313) {
+        console.log("senha correta");
         alerta = "logado com sucesso";
         
     } else {
         alerta = "nao foi possivel logar";
+        console.log("senha errada");
+    }
+    
+    if (recebido.senha == 1111) {
+        console.log("usuario administrador");
+        alerta = "usuario administrador";
     }
     
     var resposta = {
@@ -24,3 +31,5 @@ exports.handler = async (event) => {
         body: JSON.stringify(resposta)
     };
     return response;
+};
+
